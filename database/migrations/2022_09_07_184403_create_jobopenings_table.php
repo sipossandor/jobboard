@@ -18,7 +18,7 @@ return new class extends Migration
             $table->varchar('country');
             $table->varchar('city');
             $table->varchar('industry');
-            $table->varchar('language);
+            $table->varchar('language');
             $table->varchar('job_title');
             $table->varchar('job_descriptiontext');
             $table->varchar('requirements');
