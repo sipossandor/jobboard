@@ -15,7 +15,18 @@ return new class extends Migration
     {
         Schema::create('jobopenings', function (Blueprint $table) {
             $table->id();
+            $table->varchar('country');
+            $table->varchar('city');
+            $table->varchar('industry');
+            $table->varchar('language);
+            $table->varchar('job_title');
+            $table->varchar('job_descriptiontext');
+            $table->varchar('requirements');
+            $table->varchar('salary');
+            $table->varchar('start_date');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
