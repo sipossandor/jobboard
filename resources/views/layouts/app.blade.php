@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" /> -->
+    <!-- <link href="{{ asset('/css/site.css') }}" rel="stylesheet" /> -->
     <title>@yield('title', 'Career Page')</title>
 </head>
 <body>
@@ -20,6 +20,7 @@
             <div class="navbar-nav ms-auto">
                 <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
                 <a class="nav-link active" href="{{ route('home.about') }}">About</a>
+                <a class="nav-link active" href="{{ route('job_openings.index') }}">Job Openings</a>
             </div>
         </div>
     </div>
