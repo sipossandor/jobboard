@@ -21,6 +21,8 @@ Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->na
 Route::get('/admin/job_openings', 'App\Http\Controllers\Admin\AdminJobOpeningsController@index')->name("admin.job_openings.index");
 Route::post('/admin/job_openings/store', 'App\Http\Controllers\Admin\AdminJobOpeningsController@store')->name("admin.job_openings.store");
 
+Route::get('/managers', 'App\Http\Controllers\ManagersController@index')->name("managers.index");
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
