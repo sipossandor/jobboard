@@ -21,7 +21,7 @@
                         <div class="mb-3 row">
                             <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Title:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input name="name" value="{{ old('title') }}" type="text" class="form-control">
+                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="mb-3 row">
                             <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Salary:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input name="price" value="{{ old('salary') }}" type="number" class="form-control">
+                                <input name="salary" value="{{ old('salary') }}" type="number" class="form-control">
                             </div>
                         </div>
                     </div>

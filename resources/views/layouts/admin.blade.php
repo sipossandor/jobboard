@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous" />
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
-    <title>@yield('title', 'Admin - Job Openings')</title>
+    <title>@yield('title', 'Admin Panel')</title>
 </head>
 <body>
 <div class="row g-0">
@@ -19,6 +19,7 @@
         <ul class="nav flex-column">
             <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin - Home</a></li>
             <li><a href="{{ route('admin.job_openings.index') }}" class="nav-link text-white">- Admin - Job Openings</a></li>
+            <li><a href="{{ route('admin.managers.index') }}" class="nav-link text-white">- Admin - Management Board</a></li>
             <li>
                 <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home page</a>
             </li>
