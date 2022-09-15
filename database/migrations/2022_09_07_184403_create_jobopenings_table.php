@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->varchar('country');
             $table->varchar('city');
-            $table->varchar('industry');
-            $table->varchar('language');
+            $table->varchar('department');
+            $table->varchar('language_required');
             $table->varchar('job_title');
-            $table->varchar('job_descriptiontext');
+            $table->varchar('job_description');
             $table->varchar('requirements');
             $table->varchar('salary');
             $table->varchar('start_date');

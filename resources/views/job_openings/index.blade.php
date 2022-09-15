@@ -8,10 +8,8 @@
                 <div class="card">
                     <img src="{{ asset('/img/'.$job_opening["image"]) }}" class="card-img-top img-card">
                     <div class="card-body text-center">
-
                         <a href="{{ route('job_openings.show', ['id'=> $job_opening["id"]]) }}"
                            class="btn bg-primary text-white">{{ $job_opening["title"] }}</a>
-
                     </div>
                 </div>
             </div>

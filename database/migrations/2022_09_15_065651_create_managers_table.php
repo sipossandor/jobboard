@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('applications', function (Blueprint $table) {
+        Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->varchar('job_title');
-            $table->varchar('job_id');
-            $table->varchar('user_name');
-            $table->varchar('user_id');
-            $table->varchar('resume');
-            $table->varchar('linkedin_url');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applications');
+        Schema::dropIfExists('managers');
     }
 };
