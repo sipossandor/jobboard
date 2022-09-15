@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('job_description');
             $table->string('requirements');
             $table->string('salary');
-            $table->string('start_date');
+            $table->string('starting_date');
             $table->timestamps();
             $table->softDeletes();
 
