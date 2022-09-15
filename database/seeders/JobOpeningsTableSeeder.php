@@ -14,12 +14,12 @@ class JobopeningsTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('jobopenings')->delete();
-        
-        \DB::table('jobopenings')->insert(array (
-            0 => 
+
+        \DB::table('job_openings')->delete();
+
+        \DB::table('job_openings')->insert(array (
+            0 =>
             array (
                 'id' => 1,
                 'country' => 'Hungary',
@@ -35,7 +35,7 @@ class JobopeningsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'country' => 'Hungary',
@@ -51,7 +51,7 @@ class JobopeningsTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'country' => 'Hungary',
@@ -68,7 +68,7 @@ class JobopeningsTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

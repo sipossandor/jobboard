@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jobopenings', function (Blueprint $table) {
+        Schema::create('job_openings', function (Blueprint $table) {
             $table->id();
             $table->string('country');
             $table->string('city');
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('starting_date');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -37,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobopenings');
+        Schema::dropIfExists('job_openings');
     }
 };
