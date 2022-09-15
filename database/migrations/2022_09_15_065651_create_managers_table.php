@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->varchar('name');
-            $table->varchar('post');
-            $table->varchar('photo');
+            $table->string('name');
+            $table->string('post');
+            $table->string('photo');
             $table->timestamps();
             $table->softDeletes();
         });
