@@ -13,62 +13,103 @@ class AdminManagersController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Managers - Board of Management";
-        $viewData["managers"] = Manager::all();
+        $viewData["manager"] = Manager::all();
 
         return view('admin.managers.index')->with("viewData", $viewData);
     }
 
+    /* public function create()
+    {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Managers - Add New Member";
+
+        return view('admin.managers.create')->with("viewData", $viewData);
+    }*/
+
     public function store(Request $request)
     {
-        /* Georgie-féle megoldás:
-
         Manager::validate($request);
 
         $created_at = date("Y-m-d H:i:s");
-        $managers = new Manager();
-        AdminManagersController::setCommonFields($managers, $request);
-        $managers->setCreatedAt($created_at);
-        $managers->setUpdatedAt($created_at);
+        $manager = new Manager();
+        AdminManagersController::setCommonFields($manager, $request);
+        $manager->setCreatedAt($created_at);
+        $manager->setUpdatedAt($created_at);
 
-        $managers->save(); */
+        $manager->save();
 
         // Könyv 1. megoldás:
-        $request->validate([
+        /* $request->validate([
             "name" => "required",
             "post" => "required",
             'photo' => 'photo',
         ]);
 
-        $newManager = new Manager();
-        $newManager->setName($request->input('name'));
-        $newManager->setPost($request->input('post'));
-        $newManager->setPhoto("game.png");
+        Manager::validate($request);
 
-        /*
-        $newManager->save();
+        $manager = new Manager();
+        $manager->setName($request->input('name'));
+        $manager->setPost($request->input('post'));
+        $manager->setPhoto("game.png");
 
-        return back();
-        */
-
-        /* Könyv 2. megoldás:
+        Könyv 2. megoldás:
 
         $creationData = $request->only(["name","post","photo"]);
         $creationData["photo"] = "game.png";
         Manager::create($creationData); */
 
         if ($request->hasFile('image')) {
-            $photoName = $newManager->getId().".".$request->file('image')->extension();
+            $photoName = $manager->getId().".".$request->file('image')->extension();
             Storage::disk('public')->put(
                 $photoName,
                 file_get_contents($request->file('image')->getRealPath())
             );
 
-            $newManager->setPhoto($photoName);
-
-            $newManager->save();
+            $manager->setPhoto($photoName);
+            $manager->save();
         }
 
         return redirect()->route('admin.managers.index');
+    }
+
+    public function edit($id)
+    {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Edit Management Members - Board of Management";
+        $viewData["manager"] = Manager::findOrFail($id);
+
+        return view('admin.managers.edit')->with("viewData", $viewData);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Manager::validate($request);
+
+        $manager = Manager::findOrFail($id);
+
+        AdminManagersController::setCommonFields($manager, $request);
+        $manager->setUpdatedAt(date("Y-m-d H:i:s"));
+
+        $manager->save();
+
+        return redirect()->route('admin.managers.index');
+    }
+
+    public function delete($id)
+    {
+        $manager = Manager::findOrFail($id);
+        $manager->setDeletedAt(date("Y-m-d H:i:s"));
+
+        $manager->save();
+
+        return back();
+    }
+
+    private function setCommonFields($manager, $request)
+    {
+        $manager->setName($request->input('name'));
+        $manager->setPost($request->input('post'));
+        $manager->setPhoto($request->input('photo'));
     }
 
 }

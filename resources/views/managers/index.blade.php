@@ -3,15 +3,14 @@
 @section('subtitle', $viewData["subtitle"])
 @section('content')
     <div class="row">
-        @foreach ($viewData["managers"] as $managers)
+        @foreach ($viewData["manager"] as $manager)
             <div class="col-md-4 col-lg-3 mb-2">
                 <div class="card">
-                    <img src="{{ asset('/img/arnold_smith.jpg') }}" class="img-fluid rounded">
-                    <!-- <img src="{{ asset('/storage/'.$managers->getPhoto()) }}" class="card-img-top img-card"> -->
+                    <img src="{{ asset('/storage/'.$manager->getPhoto()) }}" class="card-img-top img-card">
                     <div class="card-body text-center">
-                        <a href="{{ route('managers.index', ['id'=> $managers->getId()]) }}"
-                           class="btn bg-primary text-white">{{ $managers->getName() }}</a>
-                        <p>{{ $managers->getPost() }}</p>
+                        <a href="{{ route('managers.index', ['id'=> $manager->getId()]) }}"
+                           class="btn bg-primary text-white">{{ $manager->getName() }}</a>
+                        <p>{{ $manager->getPost() }}</p>
                     </div>
                 </div>
             </div>

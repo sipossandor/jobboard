@@ -12,7 +12,7 @@ class ManagersController extends Controller
         $viewData = [];
         $viewData["title"] = "Management";
         $viewData["subtitle"] = "Board of Management";
-        $viewData["managers"] = Manager::all();
+        $viewData["manager"] = Manager::all();
 
         return view('managers.index')->with("viewData", $viewData);
     }

@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col">&nbsp;
                             &nbsp;
                         </div>
                     </div>
@@ -71,13 +71,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($viewData["managers"] as $managers)
+                @foreach ($viewData["manager"] as $manager)
                     <tr>
-                        <td>{{ $managers->getId() }}</td>
-                        <td>{{ $managers->getPost() }}</td>
-                        <td>{{ $managers->getPhoto() }}</td>
-                        <td>{{ $managers->getCreatedAt() }}</td>
-                        <td>{{ $managers->getUpdatedAt() }}</td>
+                        <td>{{ $manager->getId() }}</td>
+                        <td>{{ $manager->getName() }}</td>
+                        <td>{{ $manager->getPost() }}</td>
+                        <td>{{ $manager->getPhoto() }}</td>
+                        <td>{{ $manager->getCreatedAt() }}</td>
+                        <td>{{ $manager->getUpdatedAt() }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{route('admin.managers.edit', ['id'=> $manager->getId()])}}">
+                                <i class="bi-pencil-fill"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="/admin/managers/{{$manager->getId()}}/delete" method="POST">
+                                @csrf
+                                <button class="btn btn-danger">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
