@@ -20,6 +20,8 @@ class AdminManagersController extends Controller
 
     public function store(Request $request)
     {
+        /* Georgie-féle megoldás:
+
         Manager::validate($request);
 
         $created_at = date("Y-m-d H:i:s");
@@ -28,16 +30,42 @@ class AdminManagersController extends Controller
         $managers->setCreatedAt($created_at);
         $managers->setUpdatedAt($created_at);
 
-        $managers->save();
+        $managers->save(); */
+
+        // Könyv 1. megoldás:
+        $request->validate([
+            "name" => "required",
+            "post" => "required",
+            'photo' => 'photo',
+        ]);
+
+        $newManager = new Manager();
+        $newManager->setName($request->input('name'));
+        $newManager->setPost($request->input('post'));
+        $newManager->setPhoto("game.png");
+
+        /*
+        $newManager->save();
+
+        return back();
+        */
+
+        /* Könyv 2. megoldás:
+
+        $creationData = $request->only(["name","post","photo"]);
+        $creationData["photo"] = "game.png";
+        Manager::create($creationData); */
 
         if ($request->hasFile('image')) {
-            $imageName = $managers->getId().".".$request->file('image')->extension();
+            $photoName = $newManager->getId().".".$request->file('image')->extension();
             Storage::disk('public')->put(
-                $imageName,
+                $photoName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            $managers->setPhoto($imageName);
-            $managers->save();
+
+            $newManager->setPhoto($photoName);
+
+            $newManager->save();
         }
 
         return redirect()->route('admin.managers.index');

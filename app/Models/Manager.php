@@ -21,6 +21,12 @@ class Manager extends Model
         ]);
     }
 
+    protected $fillable = [
+        'name',
+        'post',
+        'photo',
+    ];
+
     public function getId()
     {
         return $this->attributes['id'];

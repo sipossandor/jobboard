@@ -51,6 +51,7 @@ class AdminJobOpeningsController extends Controller
         $jobOpening->save();
 
         return redirect()->route('admin.job_openings.index');
+
     }
 
     public function edit($id)
