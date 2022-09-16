@@ -2,45 +2,9 @@
 @section('title', $viewData["title"])
 @section('content')
 
-    <div class="card mb-4">
-        <div class="card-header">
-            Create Job Openings
-        </div>
-        <div class="card-body">
-            @if($errors->any())
-                <ul class="alert alert-danger list-unstyled">
-                    @foreach($errors->all() as $error)
-                        <li>- {{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            <form method="POST" action="{{ route('admin.job_openings.store') }}">
-                @csrf
-                <div class="row">
-                    <div class="col">
-                        <div class="mb-3 row">
-                            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Title:</label>
-                            <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input name="title" value="{{ old('title') }}" type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 row">
-                            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Salary:</label>
-                            <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input name="salary" value="{{ old('salary') }}" type="number" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+    <div style="margin-bottom: 2%;">
+        <!-- <button type="button" class="btn btn-primary">Create</button> -->
+        <a href="{{ url('/admin/job_openings/create') }}" class="btn btn-xs btn-info pull-right">Create</a>
     </div>
 
     <div class="card">
@@ -82,6 +46,19 @@
                         <td>{{ $job_opening->getStartingDate() }}</td>
                         <td>{{ $job_opening->getCreatedAt() }}</td>
                         <td>{{ $job_opening->getUpdatedAt() }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{route('admin.job_openings.edit', ['id'=> $job_opening->getId()])}}">
+                                <i class="bi-pencil-fill"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="/admin/job_openings/{{$job_opening->getId()}}/delete" method="POST">
+                                @csrf
+                                <button class="btn btn-danger">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
