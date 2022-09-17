@@ -22,11 +22,11 @@ class UsersTableSeeder extends Seeder
             0 =>
                 array (
                     'id' => 1,
-                    'name' => 'Nóra Zatykó',
-                    'email' => 'zatyko.nora@gmail.com',
+                    'name' => 'Pista Próba',
+                    'email' => 'proba.pista@gmail.com',
                     'email_verified_at' => NULL,
                     'password' => '',
-                    'role' => 'admin',
+                    'role' => 'candidate',
                     'remember_token' => NULL,
                     'created_at' => '2022-09-15 10:14:58',
                     'updated_at' => '2022-09-15 10:15:02',
@@ -34,11 +34,11 @@ class UsersTableSeeder extends Seeder
             1 =>
                 array (
                     'id' => 2,
-                    'name' => 'Sándor Sipos',
-                    'email' => 'sandorsipos13@gmail.com',
+                    'name' => 'Petra Példa',
+                    'email' => 'pelda.petra@gmail.com',
                     'email_verified_at' => NULL,
                     'password' => '',
-                    'role' => 'admin',
+                    'role' => 'candidate',
                     'remember_token' => NULL,
                     'created_at' => '2022-09-15 10:16:10',
                     'updated_at' => '2022-09-15 10:16:11',
