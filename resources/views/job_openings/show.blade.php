@@ -23,8 +23,16 @@
                     <p class="card-text"><b>Requirements:</b> {{ $viewData["jobopenings"]->getRequirements() }}</p>
                     <p class="card-text"><b>Salary:</b>{{ $viewData["jobopenings"]->getSalary() }}</p>
                     <p class="card-text"><b>Starting date:</b> {{ $viewData["jobopenings"]->getStartingDate() }}</p>
-                    <!-- <p class="card-text"><small class="text-muted">Apply</small></p> -->
-                    <button type="button" class="btn btn-primary">Apply</button>
+
+                    <!-- <button type="button" class="btn btn-primary">Apply</button> -->
+                    @guest
+                        <a  href="{{ route('login') }}" class="btn btn-primary">Login to apply</a>
+                    @else
+                    <div style="margin-bottom: 2%;">
+                        <a href="{{ route('job_openings.apply', ['id'=> $viewData["jobopenings"]->getId()]) }}"
+                         class="btn btn-primary">Apply</a>
+                    </div>
+                    @endguest
                 </div>
             </div>
         </div>

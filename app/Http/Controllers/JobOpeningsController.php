@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobOpening;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobOpeningsController extends Controller
 {
@@ -29,11 +29,20 @@ class JobOpeningsController extends Controller
         // $job_opening = JobOpeningsController::$job_openings[$id-1];
         $jobopenings = JobOpening::findOrFail($id);
         $viewData["title"] = $jobopenings["title"]." - Job Openings";
-        // $viewData["title"] = $job_opening->getName()." - Job Openings";
-        // $viewData["subtitle"] = $job_opening["title"]." - Job Opening Detail";
         $viewData["subtitle"] = $jobopenings->getJobTitle()." - Job Opening Detail";
         $viewData["jobopenings"] = $jobopenings;
 
         return view('job_openings.show')->with("viewData", $viewData);
+    }
+
+    public function apply($id)
+    {
+        $viewData = [];
+        $jobopenings = JobOpening::findOrFail($id);
+        $viewData["jobopenings"] = $jobopenings;
+        $viewData["title"] = $jobopenings["title"]." - Job Openings";
+        $viewData["subtitle"] = $jobopenings->getJobTitle()." - Apply Job Opening";
+        $viewData["user"] = Auth::User();
+        return view('job_openings.apply')->with("viewData", $viewData);
     }
 }

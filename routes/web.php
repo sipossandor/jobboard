@@ -18,6 +18,10 @@ Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.ab
 
 Route::get('/job_openings', 'App\Http\Controllers\JobOpeningsController@index')->name("job_openings.index");
 Route::get('/job_openings/show/{id}', 'App\Http\Controllers\JobOpeningsController@show')->name("job_openings.show");
+Route::get('/job_openings/apply/{id}', 'App\Http\Controllers\JobOpeningsController@apply')->name("job_openings.apply");
+
+Route::get('/applications', 'App\Http\Controllers\ApplicationsController@index')->name("applications.index");
+Route::post('/applications/store', 'App\Http\Controllers\ApplicationsController@store')->name("applications.store");
 
 Route::get('/managers', 'App\Http\Controllers\ManagersController@index')->name("managers.index");
 
