@@ -2,6 +2,12 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
+
+    <!-- <button type="button" class="btn btn-primary" href="{{ url('/job_openings') }}">Back</button> -->
+    <div style="margin-bottom: 2%;">
+        <a href="{{ url('/job_openings') }}" class="btn btn-xs btn-info pull-right">Back</a>
+    </div>
+
     <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-8">

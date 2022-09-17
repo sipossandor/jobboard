@@ -1,7 +1,13 @@
 @extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
-<div class="card mb-4">
+
+    <!-- <button type="button" class="btn btn-primary" href="{{ url('/admin/job_openings') }}">Back</button> -->
+    <div style="margin-bottom: 2%;">
+        <a href="{{ url('/admin/job_openings') }}" class="btn btn-xs btn-info pull-right">Back</a>
+    </div>
+
+    <div class="card mb-4">
     <div class="card-header">
         Create Job Openings
     </div>
