@@ -6,7 +6,6 @@
         @foreach ($viewData["jobopenings"] as $jobopenings)
             <div class="col-md-4 col-lg-3 mb-2">
                 <div class="card">
-                    <img src="{{ asset('/img/'.$jobopenings["image"]) }}" class="card-img-top img-card">
                     <div class="card-body text-center">
                         <a href="{{ route('job_openings.show', ['id'=> $jobopenings->getId()]) }}"
                            class="btn bg-primary text-white">{{ $jobopenings->getJobTitle() }}</a>
