@@ -60,6 +60,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function validate($request)
+    {
+        $request->validate([
+            "name" => "required",
+            "email" => "required",
+        ]);
+    }
+
     public function getId()
     {
         return $this->attributes['id'];

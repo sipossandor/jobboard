@@ -20,10 +20,14 @@ Route::get('/job_openings', 'App\Http\Controllers\JobOpeningsController@index')-
 Route::get('/job_openings/show/{id}', 'App\Http\Controllers\JobOpeningsController@show')->name("job_openings.show");
 Route::get('/job_openings/apply/{id}', 'App\Http\Controllers\JobOpeningsController@apply')->name("job_openings.apply");
 
-Route::get('/applications', 'App\Http\Controllers\ApplicationsController@index')->name("applications.index");
+// Route::get('/applications', 'App\Http\Controllers\ApplicationsController@index')->name("applications.index");
 Route::post('/applications/store', 'App\Http\Controllers\ApplicationsController@store')->name("applications.store");
 
 Route::get('/managers', 'App\Http\Controllers\ManagersController@index')->name("managers.index");
+
+Route::get('/user', 'App\Http\Controllers\UserController@index')->name("user.index");
+Route::post('/user/update/{id}', 'App\Http\Controllers\UserController@update')->name("user.update");
+Route::delete('/user/delete/{id}', 'App\Http\Controllers\UserController@delete')->name("user.delete");
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
