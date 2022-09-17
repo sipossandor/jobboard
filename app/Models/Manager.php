@@ -17,7 +17,7 @@ class Manager extends Model
         $request->validate([
             "name" => "required",
             "post" => "required",
-            // "photo" => "required",
+            "photo" => 'image',
         ]);
     }
 
