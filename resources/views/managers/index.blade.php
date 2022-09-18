@@ -11,8 +11,6 @@
                         <h5 class="card-title">
                             {{ $manager->getName() }}
                         </h5>
-                        <!-- <a href="{{ route('managers.index', ['id'=> $manager->getId()]) }}"
-                           class="btn bg-primary text-white">{{ $manager->getName() }}</a> -->
                         <p>{{ $manager->getPost() }}</p>
                     </div>
                 </div>

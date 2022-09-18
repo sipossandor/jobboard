@@ -25,6 +25,7 @@
             <form method="POST" action="{{ route('admin.managers.update', ['id'=> $viewData['manager']->getId()]) }}"
                   enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col">
                         <div class="mb-3 row">
@@ -48,7 +49,7 @@
                         <div class="mb-3 row">
                             <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Photo:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input class="form-control" type="file" name="image">
+                                <input  name="photo" type="file" class="form-control">
                             </div>
                         </div>
                     </div>

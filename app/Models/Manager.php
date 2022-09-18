@@ -17,16 +17,15 @@ class Manager extends Model
         $request->validate([
             "name" => "required",
             "post" => "required",
-            "photo" => 'image',
+            "photo" => "image",
         ]);
     }
 
-    /*
     protected $fillable = [
         'name',
         'post',
         'photo',
-    ]; */
+    ];
 
     public function getId()
     {

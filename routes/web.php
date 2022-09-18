@@ -42,7 +42,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/managers/store', 'App\Http\Controllers\Admin\AdminManagersController@store')->name("admin.managers.store");
     Route::post('/admin/managers/{id}/delete', 'App\Http\Controllers\Admin\AdminManagersController@delete')->name("admin.managers.delete");
     Route::get('/admin/managers/{id}/edit', 'App\Http\Controllers\Admin\AdminManagersController@edit')->name("admin.managers.edit");
-    Route::post('/admin/managers/{id}/update', 'App\Http\Controllers\Admin\AdminManagersController@update')->name("admin.managers.update");
+    Route::put('/admin/managers/{id}/update', 'App\Http\Controllers\Admin\AdminManagersController@update')->name("admin.managers.update");
 });
 
 Route::get('/dashboard', function () {

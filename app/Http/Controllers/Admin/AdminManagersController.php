@@ -38,26 +38,6 @@ class AdminManagersController extends Controller
 
         $manager->save();
 
-        // Könyv 1. megoldás:
-        /* $request->validate([
-            "name" => "required",
-            "post" => "required",
-            'photo' => 'photo',
-        ]);
-
-        Manager::validate($request);
-
-        $manager = new Manager();
-        $manager->setName($request->input('name'));
-        $manager->setPost($request->input('post'));
-        $manager->setPhoto("game.png");
-
-        Könyv 2. megoldás:
-
-        $creationData = $request->only(["name","post","photo"]);
-        $creationData["photo"] = "game.png";
-        Manager::create($creationData); */
-
         if ($request->hasFile('image')) {
             $photoName = $manager->getId().".".$request->file('image')->extension();
             Storage::disk('public')->put(
@@ -87,11 +67,21 @@ class AdminManagersController extends Controller
 
         $manager = Manager::findOrFail($id);
 
-        AdminManagersController::setCommonFields($manager, $request);
+        // AdminManagersController::setCommonFields($manager, $request);
+        $manager->setName($request->input('name'));
+        $manager->setPost($request->input('post'));
         $manager->setUpdatedAt(date("Y-m-d H:i:s"));
 
-        $manager->save();
+        if ($request->hasFile('image')) {
+            $photoName = $manager->getId().".".$request->file('image')->extension();
+            Storage::disk('public')->put(
+                $photoName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            $manager->setPhoto($photoName);
+        }
 
+        $manager->save();
         return redirect()->route('admin.managers.index');
     }
 

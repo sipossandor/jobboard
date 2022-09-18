@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <!-- <link href="{{ asset('/css/site.css') }}" rel="stylesheet" /> -->
+    <link href="{{ asset('/css/site.css') }}" rel="stylesheet" />
     <title>@yield('title', 'Career Page')</title>
 </head>
 <body>
@@ -49,7 +49,7 @@
 </div>
 <!-- footer -->
 <footer id="footer">
-    <div class="copyright py-4 text-center text-black">
+    <div class="copyright py-4 text-center text-white">
         <div class="container">
             <small>
                 Copyright - <b>Nóra Zatykó</b> - <b>Sándor Sipos</b>
