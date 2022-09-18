@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('job_title');
-            $table->string('job_id');
+            $table->integer('job_id');
             $table->string('user_name');
-            $table->string('user_id');
+            $table->integer('user_id');
             $table->string('resume');
             $table->string('linkedin_url');
             $table->timestamps();
