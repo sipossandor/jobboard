@@ -27,12 +27,12 @@
                     <a class="nav-link active" href="{{ route('login') }}">Login</a>
                     <a class="nav-link active" href="{{ route('register') }}">Register</a>
                 @else
-                    <a class="nav-link active" href="{{ route('user.index') }}">My Profile</a>
-                    <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active"
-                           onclick="document.getElementById('logout').submit();">Logout</a>
-                        @csrf
-                    </form>
+                        <a class="nav-link active" href="{{ route('user.index') }}">My Profile</a>
+                        <form id="logout" action="{{ route('logout') }}" method="POST">
+                            <a role="button" class="nav-link active"
+                               onclick="document.getElementById('logout').submit();">Logout</a>
+                            @csrf
+                        </form>
                 @endguest
             </div>
         </div>
