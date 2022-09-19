@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -114,17 +115,6 @@ class User extends Authenticatable
         $this->attributes['role'] = $role;
     }
 
-    /*
-    public function getApplications()
-    {
-        return $this->attributes['applications'];
-    }
-    public function setApplications($applications)
-    {
-        $this->attributes['applications'] = $applications;
-    }
-    */
-
     public function getCreatedAt()
     {
         return $this->attributes['created_at'];
@@ -143,13 +133,19 @@ class User extends Authenticatable
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    // public function applications()
-    // {
-    //     return $this->hasMany(Application::class);
-    // }
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
 
     public function isAdministrator(): bool
     {
         return $this->getRole() == 'admin';
     }
+
+    public function getApplications()
+    {
+        return User::find(Auth::User()->getId())->applications;
+    }
+
 }

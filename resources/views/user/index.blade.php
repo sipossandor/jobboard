@@ -77,8 +77,34 @@
                         </thead>
                     </table>
                 </div>
-
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-header">
+            Applications
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Time of Application</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($viewData['user']->getApplications() as $application)
+                    <tr>
+
+                        <td>{{ $application->getJobOpening()->getJobTitle() }}</td>
+                        <td>{{ $application->getCreatedAt() }}</td>
+
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div></div>
 
 @endsection

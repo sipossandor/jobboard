@@ -51,9 +51,7 @@ class ApplicationsController
 
     private function setCommonFields($application, $request)
     {
-        $application->setJobTitle($request->input('job_title'));
         $application->setJobId($request->input('job_id'));
-        $application->setUserName($request->input('user_name'));
         $application->setUserId($request->input('user_id'));
         $application->setResume($request->input('resume'));
         $application->setLinkedInUrl($request->input('linkedin_url'));

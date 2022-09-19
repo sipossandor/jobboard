@@ -10,8 +10,6 @@ class Application extends Model
 {
     // use HasFactory;
 
-    use SoftDeletes;
-
     public static function validate($request)
     {
         $request->validate([
@@ -112,5 +110,10 @@ class Application extends Model
     public function setDeletedAt($deleted_at)
     {
         $this->attributes['deleted_at'] = $deleted_at;
+    }
+
+    public function getJobOpening() {
+        $id = $this->getId();
+        return JobOpening::find($id);
     }
 }
