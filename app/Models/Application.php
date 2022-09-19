@@ -113,7 +113,7 @@ class Application extends Model
     }
 
     public function getJobOpening() {
-        $id = $this->getId();
+        $id = $this->getJobId();
         return JobOpening::find($id);
     }
 }

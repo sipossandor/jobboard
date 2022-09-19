@@ -20,10 +20,6 @@ class ApplicationsController
     public function store(Request $request)
     {
         echo "<script>console.log('job_id: " . $request->input('job_id') . "' );</script>";
-        echo "<script>console.log('job_title: " . $request->input('job_title') . "' );</script>";
-        echo "<script>console.log('user_name: " . $request->input('user_name') . "' );</script>";
-        echo "<script>console.log('user_id: " . $request->input('user_id') . "' );</script>";
-        echo "<script>console.log('resume: " . $request->input('resume') . "' );</script>";
 
         Application::validate($request);
         $created_at = date("Y-m-d H:i:s");
