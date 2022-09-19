@@ -141,4 +141,9 @@ class User extends Authenticatable
     {
         $this->attributes['updated_at'] = $updatedAt;
     }
+
+    // public function applications()
+    // {
+    //     return $this->hasMany(Application::class);
+    // }
 }
