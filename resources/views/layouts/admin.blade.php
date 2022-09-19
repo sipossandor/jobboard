@@ -19,6 +19,7 @@
         <hr />
         <ul class="nav flex-column">
             <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin - Home</a></li>
+            <li><a href="{{ route('admin.users.index') }}" class="nav-link text-white">- Admin - Users</a></li>
             <li><a href="{{ route('admin.job_openings.index') }}" class="nav-link text-white">- Admin - Job Openings</a></li>
             <li><a href="{{ route('admin.managers.index') }}" class="nav-link text-white">- Admin - Management Board</a></li>
             <li>

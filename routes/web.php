@@ -43,6 +43,11 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/managers/{id}/delete', 'App\Http\Controllers\Admin\AdminManagersController@delete')->name("admin.managers.delete");
     Route::get('/admin/managers/{id}/edit', 'App\Http\Controllers\Admin\AdminManagersController@edit')->name("admin.managers.edit");
     Route::put('/admin/managers/{id}/update', 'App\Http\Controllers\Admin\AdminManagersController@update')->name("admin.managers.update");
+
+    Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUsersController@index')->name("admin.users.index");
+    // Route::post('/admin/users/{id}/delete', 'App\Http\Controllers\Admin\AdminUsersController@delete')->name("admin.users.delete");
+    Route::get('/admin/users/{id}/edit', 'App\Http\Controllers\Admin\AdminUsersController@edit')->name("admin.users.edit");
+    Route::put('/admin/users/{id}/update', 'App\Http\Controllers\Admin\AdminUsersController@update')->name("admin.users.update");
 });
 
 Route::get('/dashboard', function () {
