@@ -146,4 +146,9 @@ class User extends Authenticatable
     // {
     //     return $this->hasMany(Application::class);
     // }
+
+    public function isAdministrator(): bool
+    {
+        return $this->getRole() == 'admin';
+    }
 }

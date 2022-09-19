@@ -33,7 +33,13 @@
                                onclick="document.getElementById('logout').submit();">Logout</a>
                             @csrf
                         </form>
+                    @if (Auth::user()->isAdministrator())
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('admin.home.index') }}">Admin</a>
+                        </li>
+                    @endif
                 @endguest
+
             </div>
         </div>
     </div>
