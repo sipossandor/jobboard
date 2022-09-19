@@ -39,7 +39,7 @@ class AdminManagersController extends Controller
         $manager->save();
 
         if ($request->hasFile('image')) {
-            $photoName = $manager->getId().".".$request->file('image')->extension();
+            $photoName = $manager->getId()."_".date('Y_m_d_H_i_s').".".$request->file('image')->extension();
             Storage::disk('public')->put(
                 $photoName,
                 file_get_contents($request->file('image')->getRealPath())
@@ -66,19 +66,20 @@ class AdminManagersController extends Controller
         Manager::validate($request);
 
         $manager = Manager::findOrFail($id);
-
-        // AdminManagersController::setCommonFields($manager, $request);
         $manager->setName($request->input('name'));
         $manager->setPost($request->input('post'));
         $manager->setUpdatedAt(date("Y-m-d H:i:s"));
+        $manager->save();
 
         if ($request->hasFile('image')) {
-            $photoName = $manager->getId().".".$request->file('image')->extension();
+            $photoName = $manager->getId()."_".date('Y_m_d_H_i_s').".".$request->file('image')->extension();
+
             Storage::disk('public')->put(
                 $photoName,
                 file_get_contents($request->file('image')->getRealPath())
             );
             $manager->setPhoto($photoName);
+            $manager->save();
         }
 
         $manager->save();

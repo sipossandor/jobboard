@@ -49,7 +49,7 @@
                         <div class="mb-3 row">
                             <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Photo:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input  name="photo" type="file" class="form-control">
+                                <input  name="image" type="file" class="form-control">
                             </div>
                         </div>
                     </div>
