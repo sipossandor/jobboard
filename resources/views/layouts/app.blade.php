@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <link href="{{ asset('/css/site.css') }}" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous"/>
+    <link href="{{ asset('/css/site.css') }}" rel="stylesheet"/>
     <title>@yield('title', 'Career Page')</title>
 </head>
 <body>
@@ -27,12 +28,12 @@
                     <a class="nav-link active" href="{{ route('login') }}">Login</a>
                     <a class="nav-link active" href="{{ route('register') }}">Register</a>
                 @else
-                        <a class="nav-link active" href="{{ route('user.index') }}">My Profile</a>
-                        <form id="logout" action="{{ route('logout') }}" method="POST">
-                            <a role="button" class="nav-link active"
-                               onclick="document.getElementById('logout').submit();">Logout</a>
-                            @csrf
-                        </form>
+                    <a class="nav-link active" href="{{ route('user.index') }}">My Profile</a>
+                    <form id="logout" action="{{ route('logout') }}" method="POST">
+                        <a role="button" class="nav-link active"
+                           onclick="document.getElementById('logout').submit();">Logout</a>
+                        @csrf
+                    </form>
                     @if (Auth::user()->isAdministrator())
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('admin.home.index') }}">Admin</a>
@@ -50,9 +51,13 @@
     </div>
 </header>
 <!-- header -->
+
 <div class="container my-4">
     @yield('content')
 </div>
+
+<div class="clear"></div>
+
 <!-- footer -->
 <footer id="footer">
     <div class="copyright py-4 text-center text-white">
@@ -64,6 +69,7 @@
     </div>
 </footer>
 <!-- footer -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
 </script>
 </body>

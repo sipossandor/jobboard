@@ -38,6 +38,9 @@
         </div>
     </div>
 </div>
+
+<div class="clear"></div>
+
 <!-- footer -->
 <footer id="footer">
 <div class="copyright py-4 text-center text-white">
