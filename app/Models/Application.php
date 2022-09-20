@@ -116,4 +116,9 @@ class Application extends Model
         $id = $this->getJobId();
         return JobOpening::find($id);
     }
+
+    public function getUser() {
+        $id = $this->getUserId();
+        return User::find($id);
+    }
 }
