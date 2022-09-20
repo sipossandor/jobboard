@@ -4,7 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 ms-auto">
-            <p class="lead">{{ $viewData["description"] }}</p>
+            <p class="lead" style="text-align:justify">{{ $viewData["description"] }}</p>
         </div>
     </div>
     <div>Our values:</div>
